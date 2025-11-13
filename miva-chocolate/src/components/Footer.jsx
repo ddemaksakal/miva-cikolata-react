@@ -7,7 +7,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const FooterContainer = styled.footer`
   background-color: #4B2E2E;
   color: #ffffff;
-  padding: 3rem 0 1.5rem;
+  padding: 1rem 0 1rem;
   margin-top: auto;
 `;
 
@@ -24,7 +24,7 @@ const FooterContent = styled.div`
 
 const FooterColumn = styled.div`
   h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
     position: relative;
     padding-bottom: 0.5rem;

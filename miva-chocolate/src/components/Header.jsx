@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
+// --- Styled Components ---
+
 const HeaderContainer = styled.header`
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -11,13 +13,18 @@ const HeaderContainer = styled.header`
   z-index: 1000;
 `;
 
+// GOAL 3: TopBar artık tam genişlikli bir çizgi/gölge sarmalayıcısı
 const TopBar = styled.div`
+  border-bottom: 1px solid rgba(12, 154, 255, 0.29);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+`;
+
+// YENİ: TopBar'ın içeriğini .container içinde sarmalamak için
+const TopBarContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 `;
 
 const LogoContainer = styled.div`
@@ -26,21 +33,32 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled(RouterLink)`
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #4B2E2E;
+  display: flex;
+  align-items: center;
   text-decoration: none;
   
-  span {
-    color: #D4AF37;
+  img {
+    height: 85px;
+    width: auto;
   }
+`;
+
+// YENİ (GOAL 1): İletişim ve Dil seçicisini gruplamak için
+const TopBarRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; // ContactInfo'daki gap ile aynı
 `;
 
 const ContactInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
+  /* Öneri: Tablet boyutlarında gizlenebilir */
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 const ContactItem = styled.div`
@@ -54,7 +72,7 @@ const ContactItem = styled.div`
 `;
 
 const ContactIcon = styled.span`
-  color: #D4AF37;
+  color:rgb(234, 40, 30);
   font-size: 1.2rem;
 `;
 
@@ -66,7 +84,7 @@ const LanguageSelector = styled.div`
 const LanguageButton = styled.button`
   background: ${props => props.active ? '#D4AF37' : 'transparent'};
   color: ${props => props.active ? '#ffffff' : '#3E2723'};
-  border: 2px solid #D4AF37;
+  border: 2px solidrgb(237, 118, 85);
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -90,15 +108,23 @@ const LanguageButton = styled.button`
   }
   
   &.active {
-    background: #D4AF37;
+    background:rgb(234, 40, 30);
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 `;
 
+// GOAL 2 & 3: Navbar artık flex stilleri olmayan tam genişlikli bir sarmalayıcı
 const Navbar = styled.nav`
+  /* Orijinal flex, justify-content, padding stilleri kaldırıldı */
+  background-color: #ffffff; /* Arka plan rengi eklendi (eğer TopBar'dan ayrıysa) */
+`;
+
+// YENİ: Navbar içeriğini .container içinde sarmalamak için
+// GOAL 2: justify-content menüyü sola, mobil ikonu sağa iter
+const NavbarContent = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 `;
@@ -106,12 +132,14 @@ const Navbar = styled.nav`
 const NavMenu = styled.ul`
   display: flex;
   list-style: none;
+  margin: 0; /* Tarayıcı varsayılanlarını sıfırla */
+  padding: 0; /* Tarayıcı varsayılanlarını sıfırla */
   
   @media (max-width: 768px) {
     position: fixed;
     flex-direction: column;
     background-color: #ffffff;
-    top: 120px;
+    top: 150px; /* Bu değeri üst çubukların toplam yüksekliğine göre ayarlamanız gerekebilir */
     left: -100%;
     width: 100%;
     text-align: center;
@@ -135,10 +163,10 @@ const NavItem = styled.li`
 
 const NavLink = styled(RouterLink)`
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #3E2723;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
   
@@ -172,11 +200,12 @@ const MobileToggle = styled.div`
   }
 `;
 
+// --- React Component ---
+
 function Header() {
   const [click, setClick] = useState(false);
-  const [language, setLanguage] = useState('TR'); // Default language is now Turkish
+  const [language, setLanguage] = useState('TR');
   
-  // Load saved language preference from localStorage on component mount
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage) {
@@ -189,55 +218,68 @@ function Header() {
   
   const changeLanguage = (lang) => {
     setLanguage(lang);
-    // Save the preference to localStorage
     localStorage.setItem('preferredLanguage', lang);
     console.log(`Language changed to: ${lang}`);
   };
 
+  // --- Değiştirilmiş JSX Yapısı ---
   return (
     <HeaderContainer>
-      <div className="container">
-        <TopBar>
-          <LogoContainer>
-            <Logo to="/">
-              Miva<span>Chocolate</span>
-            </Logo>
-          </LogoContainer>
-          <ContactInfo>
-            <ContactItem>
-              <ContactIcon>
-                <FaPhone />
-              </ContactIcon>
-              <span>+90 216 123 45 67</span>
-            </ContactItem>
-            <ContactItem>
-              <ContactIcon>
-                <FaMapMarkerAlt />
-              </ContactIcon>
-              <span>Kartal / Istanbul</span>
-            </ContactItem>
-          </ContactInfo>
-          <LanguageSelector>
-            <LanguageButton 
-              active={language === 'TR'} 
-              onClick={() => changeLanguage('TR')}
-              className={language === 'TR' ? 'active' : ''}
-              aria-label="Türkçe diline geç"
-            >
-              TR
-            </LanguageButton>
-            <LanguageButton 
-              active={language === 'EN'} 
-              onClick={() => changeLanguage('EN')}
-              className={language === 'EN' ? 'active' : ''}
-              aria-label="Switch to English"
-            >
-              EN
-            </LanguageButton>
-          </LanguageSelector>
-        </TopBar>
-        <Navbar>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+      {/* GOAL 3: TopBar artık .container dışında, tam genişlikte */}
+      <TopBar>
+        <div className="container">
+          <TopBarContent>
+            <LogoContainer>
+              <Logo to="/">
+                <img src="/images/miva-chocolate-logo.jpg" alt="Miva Çikolata Logo" />
+              </Logo>
+            </LogoContainer>
+            
+            {/* GOAL 1: İletişim ve Dil yeni TopBarRight içinde gruplandı */}
+            <TopBarRight>
+              <ContactInfo>
+                <ContactItem>
+                  <ContactIcon>
+                    <FaPhone />
+                  </ContactIcon>
+                  <span>+90 216 123 45 67</span>
+                </ContactItem>
+                <ContactItem>
+                  <ContactIcon>
+                    <FaMapMarkerAlt />
+                  </ContactIcon>
+                  <span>Kartal / Istanbul</span>
+                </ContactItem>
+              </ContactInfo>
+              <LanguageSelector>
+                <LanguageButton 
+                  active={language === 'TR'} 
+                  onClick={() => changeLanguage('TR')}
+                  className={language === 'TR' ? 'active' : ''}
+                  aria-label="Türkçe diline geç"
+                >
+                  TR
+                </LanguageButton>
+                <LanguageButton 
+                  active={language === 'EN'} 
+                  onClick={() => changeLanguage('EN')}
+                  className={language === 'EN' ? 'active' : ''}
+                  aria-label="Switch to English"
+                >
+                  EN
+                </LanguageButton>
+              </LanguageSelector>
+            </TopBarRight>
+          </TopBarContent>
+        </div>
+      </TopBar>
+      
+      {/* GOAL 3: Navbar artık .container dışında, tam genişlikte */}
+      <Navbar>
+        <div className="container">
+          <NavbarContent>
+            {/* GOAL 2: NavMenu artık solda (space-between'in ilk elemanı) */}
+            {/* Ekstra div sarmalayıcısı kaldırıldı */}
             <NavMenu className={click ? 'active' : ''}>
               <NavItem>
                 <NavLink to="/" onClick={closeMobileMenu}>
@@ -265,14 +307,16 @@ function Header() {
                 </NavLink>
               </NavItem>
             </NavMenu>
-          </div>
-          <MobileToggle onClick={handleClick}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </MobileToggle>
-        </Navbar>
-      </div>
+            
+            {/* MobileToggle sağda kalır (space-between'in ikinci elemanı) */}
+            <MobileToggle onClick={handleClick}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </MobileToggle>
+          </NavbarContent>
+        </div>
+      </Navbar>
     </HeaderContainer>
   );
 }

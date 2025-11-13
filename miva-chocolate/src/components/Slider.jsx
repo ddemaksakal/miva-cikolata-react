@@ -39,7 +39,7 @@ const SlideContent = styled.div`
     margin-bottom: 1.5rem;
     
     span {
-      color: #D4AF37;
+      color:rgba(224, 166, 125, 0.99);
     }
     
     @media (max-width: 768px) {
@@ -122,18 +122,18 @@ function Slider({ onExploreClick }) {
   const slides = [
     {
       image: '/images/banner1.jpg',
-      title: 'Premium <span>Chocolate</span> Crafted with Passion',
-      description: 'Discover the exquisite taste of Miva Chocolate, where tradition meets innovation to create unforgettable chocolate experiences for both businesses and consumers.'
+      title: 'Premium <span>Chocolate</span> Tutkuyla Hazırlandı',
+      description:'Unutulmaz çikolata deneyimleri yaşamak için geleneğin yenilikle buluştuğu Miva Çikolatanın enfes lezzetini keşfedin.'
     },
     {
       image: '/images/banner2.jpg',
-      title: 'Exquisite <span>Chocolate Creations</span> for Every Occasion',
-      description: 'Our premium chocolate products add the perfect touch of luxury to your desserts, baked goods, and confections.'
+      title: 'Her Gününüz İçin Enfes  <span>Çikolata Kreasyonları</span> ',
+      description: 'Birinci sınıf çikolata ürünlerimiz tatlılarınıza, unlu mamullerinize ve şekerlemelerinize mükemmel bir lüks dokunuşu katar.'
     },
     {
       image: '/images/banner3.jpg',
-      title: 'Rich <span>Flavors</span> for Culinary Excellence',
-      description: 'Elevate your desserts and beverages with our artisanal chocolate products, crafted for professional chefs and home cooks alike.'
+      title: 'Mutfak Mükemmelliği için <span>Zengin </span> ',
+      description: 'Hem profesyonel şefler hem de ev aşçıları için hazırlanmış zanaatkar çikolata ürünlerimizle tatlılarınızın kalitesini yükseltin.'
     }
   ];
 
@@ -170,7 +170,7 @@ function Slider({ onExploreClick }) {
             <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
             <p>{slide.description}</p>
             <button className="btn btn--accent" onClick={onExploreClick}>
-              Explore Our Products
+              Ürünlerimizi Keşfedin
             </button>
           </SlideContent>
         </Slide>

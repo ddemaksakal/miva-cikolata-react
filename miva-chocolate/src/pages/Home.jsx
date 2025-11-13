@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 import Slider from '../components/Slider';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -51,6 +55,16 @@ const ProductsGrid = styled.div`
   margin-top: 2rem;
 `;
 
+const Separator = styled.hr`
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(75, 46, 46, 0), rgba(75, 46, 46, 0.5), rgba(75, 46, 46, 0));
+  margin: 2rem 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const ProductCard = styled.div`
   background-color: #ffffff;
   border-radius: 8px;
@@ -93,7 +107,7 @@ const AboutSection = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    align-items: center;
+    align-items: start;
     
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
@@ -114,6 +128,48 @@ const AboutSection = styled.section`
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: stretch;
+    height: auto;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper-button-next, .swiper-button-prev {
+    color: #D4AF37;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .swiper {
+      aspect-ratio: 16/9;
+    }
   }
 `;
 
@@ -172,6 +228,8 @@ function Home() {
         </div>
       </Section>
       
+      <Separator />
+      
       {/* About Section */}
       <AboutSection>
         <div className="container">
@@ -189,7 +247,29 @@ function Home() {
               </RouterLink>
             </div>
             <div className="about-image">
-              <img src="/images/about-image.jpg" alt="Chocolate Production" />
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                navigation
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                className="mySwiper"
+                style={{ height: 'auto' }}
+              >
+                <SwiperSlide>
+                  <img src="/images/Adsiz-tasarim-15-1024x720.jpg" alt="Chocolate Production 1" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="/images/Mua-Dubai-Cikolatasi.jpg" alt="Chocolate Production 2" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="/images/cikolata-tadimi-milat-cikolata-ile-her-b-6e5a.jpg" alt="Chocolate Production 3" />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>

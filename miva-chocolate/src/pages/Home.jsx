@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import chocolateSauceImg from '../assets/çikolata sos2.jpg';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -79,7 +80,7 @@ const ProductCard = styled.div`
   
   img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
   }
   
@@ -193,10 +194,10 @@ function Home() {
           
           <ProductsGrid>
             <ProductCard>
-              <img src="/images/tablet-chocolate.jpg" alt={t('tabletChocolate')} />
+              <img src="/images/madlen post.png" alt={t('homeProduct1Name')} />
               <div className="card-content">
-                <h3>{t('tabletChocolate')}</h3>
-                <p>{t('tabletChocolateDesc')}</p>
+                <h3>{t('homeProduct1Name')}</h3>
+                <p>{t('homeProduct1Desc')}</p>
                 <RouterLink to="/products" className="btn btn--secondary">
                   {t('viewDetails')}
                 </RouterLink>
@@ -204,10 +205,10 @@ function Home() {
             </ProductCard>
             
             <ProductCard>
-              <img src="/images/chocolate-chips.jpg" alt={t('chocolateChips')} />
+              <img src={chocolateSauceImg} alt={t('homeProduct2Name')} />
               <div className="card-content">
-                <h3>{t('chocolateChips')}</h3>
-                <p>{t('chocolateChipsDesc')}</p>
+                <h3>{t('homeProduct2Name')}</h3>
+                <p>{t('homeProduct2Desc')}</p>
                 <RouterLink to="/products" className="btn btn--secondary">
                   {t('viewDetails')}
                 </RouterLink>
@@ -215,10 +216,10 @@ function Home() {
             </ProductCard>
             
             <ProductCard>
-              <img src="/images/couverture.jpg" alt={t('couvertureChocolate')} />
+              <img src="/images/bitter kırıntı.png" alt={t('homeProduct3Name')} />
               <div className="card-content">
-                <h3>{t('couvertureChocolate')}</h3>
-                <p>{t('couvertureChocolateDesc')}</p>
+                <h3>{t('homeProduct3Name')}</h3>
+                <p>{t('homeProduct3Desc')}</p>
                 <RouterLink to="/products" className="btn btn--secondary">
                   {t('viewDetails')}
                 </RouterLink>

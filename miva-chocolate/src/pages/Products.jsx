@@ -3,31 +3,72 @@ import styled from 'styled-components';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ProductsContainer = styled.div`
-  padding: 3rem 0;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+`;
+
+// Hero/Banner Section - İletişim sayfasındaki gibi
+const HeroSection = styled.section`
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+              url('/images/products-header.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2rem;
   
   @media (max-width: 768px) {
-    padding: 2rem 0;
+    height: 280px;
+    padding: 0 1rem;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+      
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: #ffffff;
+      opacity: 0.9;
+      max-width: 500px;
+      line-height: 1.6;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+    }
   }
 `;
 
-const PageHeader = styled.div`
-  background: linear-gradient(rgba(75, 46, 46, 0.8), rgba(75, 46, 46, 0.8)), 
-              url('/images/products-header.jpg') center/cover no-repeat;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 3rem;
+// Main Content Section
+const MainContent = styled.section`
+  padding: 4rem 2rem;
   
-  h1 {
-    font-size: 3rem;
-    color: #ffffff;
-    
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
+  
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `;
 
@@ -45,16 +86,16 @@ const FilterButtons = styled.div`
 
 const FilterButton = styled.button`
   padding: 0.5rem 1.5rem;
-  background-color: ${props => props.active ? '#D4AF37' : 'transparent'};
+  background-color: ${props => props.active ? 'rgb(234, 40, 30)' : 'transparent'};
   color: ${props => props.active ? '#ffffff' : '#3E2723'};
-  border: 2px solid #D4AF37;
+  border: 2px solid rgb(234, 40, 30);
   border-radius: 30px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   
   &:hover {
-    background-color: ${props => props.active ? '#D4AF37' : 'rgba(212, 175, 55, 0.1)'};
+    background-color: ${props => props.active ? 'rgb(234, 40, 30)' : 'rgba(234, 40, 30, 0.1)'};
   }
 `;
 
@@ -129,104 +170,127 @@ const ProductCard = styled.div`
 const allProducts = [
   {
     id: 1,
-    name: 'Dark Chocolate Tablet 70%',
+    nameKey: 'product1Name',
     category: 'tablets',
-    description: 'Premium dark chocolate with 70% cocoa content for a rich, intense flavor.',
-    price: '₺85.00',
+    descKey: 'product1Desc',
     image: '/images/tablet-dark-70.jpg'
   },
   {
     id: 2,
-    name: 'Milk Chocolate Tablet',
+    nameKey: 'product2Name',
     category: 'tablets',
-    description: 'Smooth and creamy milk chocolate with the perfect balance of cocoa and milk.',
-    price: '₺75.00',
+    descKey: 'product2Desc',
     image: '/images/tablet-milk.jpg'
   },
   {
     id: 3,
-    name: 'White Chocolate Tablet',
+    nameKey: 'product3Name',
     category: 'tablets',
-    description: 'Delicate white chocolate with vanilla notes for a sweet, creamy experience.',
-    price: '₺80.00',
+    descKey: 'product3Desc',
     image: '/images/tablet-white.jpg'
   },
   {
     id: 4,
-    name: 'Dark Chocolate Chips',
+    nameKey: 'product4Name',
     category: 'chips',
-    description: 'Rich dark chocolate chips perfect for baking cookies, brownies, and desserts.',
-    price: '₺90.00',
+    descKey: 'product4Desc',
     image: '/images/chips-dark.jpg'
   },
   {
     id: 5,
-    name: 'Milk Chocolate Chips',
+    nameKey: 'product5Name',
     category: 'chips',
-    description: 'Creamy milk chocolate chips ideal for all your baking needs.',
-    price: '₺85.00',
+    descKey: 'product5Desc',
     image: '/images/chips-milk.jpg'
   },
   {
     id: 6,
-    name: 'Couverture Dark Chocolate',
+    nameKey: 'product6Name',
     category: 'couverture',
-    description: 'Professional-grade dark couverture chocolate with 55% cocoa butter for perfect tempering.',
-    price: '₺120.00',
-    image: '/images/couverture-dark.jpg'
+    descKey: 'product6Desc',
+    image: '/images/ürünler images/kuvertur-cikolata-bitter.jpg'
   },
   {
     id: 7,
-    name: 'Couverture Milk Chocolate',
+    nameKey: 'product7Name',
     category: 'couverture',
-    description: 'Smooth milk couverture chocolate with high cocoa butter content for professional use.',
-    price: '₺115.00',
-    image: '/images/couverture-milk.jpg'
+    descKey: 'product7Desc',
+    image: '/images/ürünler images/kuvertur-cikolata-sütlü.jpg'
   },
   {
-    id: 8,
-    name: 'Orange Dark Chocolate Tablet',
-    category: 'tablets',
-    description: 'Premium dark chocolate with natural orange zest for a citrusy twist.',
-    price: '₺100.00',
-    image: '/images/tablet-orange.jpg'
+    id: 13,
+    nameKey: 'product13Name',
+    category: 'couverture',
+    descKey: 'product13Desc',
+    image: '/images/ürünler images/kuvertur-cikolata-beyaz.jpg'
   },
   {
     id: 9,
-    name: 'Chocolate Sauce Classic',
+    nameKey: 'product9Name',
     category: 'sauces',
-    description: 'Smooth and rich chocolate sauce perfect for desserts, beverages, and toppings.',
-    price: '₺65.00',
+    descKey: 'product9Desc',
     image: '/images/sauce-classic.jpg'
   },
   {
     id: 10,
-    name: 'Cocoa Powder Premium',
+    nameKey: 'product10Name',
     category: 'cocoa',
-    description: '100% pure natural cocoa powder with intense flavor. Great for baking and beverages.',
-    price: '₺90.00',
+    descKey: 'product10Desc',
     image: '/images/cocoa-powder.jpg'
   },
   {
     id: 11,
-    name: 'Hot Chocolate Mix',
+    nameKey: 'product11Name',
     category: 'specialty',
-    description: 'Rich and creamy hot chocolate mix with real cocoa. Just add hot water or milk.',
-    price: '₺55.00',
+    descKey: 'product11Desc',
     image: '/images/hot-chocolate.jpg'
   },
   {
     id: 12,
-    name: 'Chocolate Gift Box',
+    nameKey: 'product12Name',
     category: 'specialty',
-    description: 'Elegant gift box with assortment of our finest chocolate creations.',
-    price: '₺200.00',
+    descKey: 'product12Desc',
     image: '/images/gift-box.jpg'
+  },
+  {
+    id: 14,
+    nameKey: 'product14Name',
+    category: 'dragees',
+    descKey: 'product14Desc',
+    image: '/images/ürünler images/portakal draje.png'
+  },
+  {
+    id: 15,
+    nameKey: 'product15Name',
+    category: 'dragees',
+    descKey: 'product15Desc',
+    image: '/images/ürünler images/antep fıs. draje.png'
+  },
+  {
+    id: 16,
+    nameKey: 'product16Name',
+    category: 'dragees',
+    descKey: 'product16Desc',
+    image: '/images/ürünler images/üzüm draje.png'
+  },
+  {
+    id: 17,
+    nameKey: 'product17Name',
+    category: 'dragees',
+    descKey: 'product17Desc',
+    image: '/images/ürünler images/badem draje.png'
+  },
+  {
+    id: 18,
+    nameKey: 'product18Name',
+    category: 'dragees',
+    descKey: 'product18Desc',
+    image: '/images/ürünler images/fındık draje.png'
   }
 ];
 
 function Products() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState('all');
 
   const categories = [
@@ -236,7 +300,8 @@ function Products() {
     { id: 'couverture', name: t('couverture') },
     { id: 'sauces', name: t('sauces') },
     { id: 'cocoa', name: t('cocoa') },
-    { id: 'specialty', name: t('specialty') }
+    { id: 'specialty', name: t('specialty') },
+    { id: 'dragees', name: t('dragees') }
   ];
 
   const filteredProducts = filter === 'all' 
@@ -245,44 +310,48 @@ function Products() {
 
   return (
     <ProductsContainer>
-      <PageHeader>
-        <h1>{t('ourProducts')}</h1>
-      </PageHeader>
-      
-      <div className="container">
-        <FilterButtons>
-          {categories.map(category => (
-            <FilterButton
-              key={category.id}
-              active={filter === category.id}
-              onClick={() => setFilter(category.id)}
-            >
-              {category.name}
-            </FilterButton>
-          ))}
-        </FilterButtons>
-        
-        <ProductsGrid>
-          {filteredProducts.map(product => (
-            <ProductCard key={product.id}>
-              <div className="product-image">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="product-info">
-                <span className="product-category">
-                  {categories.find(cat => cat.id === product.category)?.name || product.category}
-                </span>
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <div className="product-price">{product.price}</div>
-                <button className="btn btn--secondary">
-                  {t('addToCart')}
-                </button>
-              </div>
-            </ProductCard>
-          ))}
-        </ProductsGrid>
-      </div>
+      {/* Hero Section */}
+      <HeroSection>
+        <div className="hero-content">
+          <h1>{t('ourProducts')}</h1>
+          <p>Kaliteli ve lezzetli çikolata ürünlerimizle tanışın.</p>
+        </div>
+      </HeroSection>
+
+      {/* Main Content Section */}
+      <MainContent>
+        <div className="content-container">
+          <FilterButtons>
+            {categories.map(category => (
+              <FilterButton
+                key={category.id}
+                active={filter === category.id}
+                onClick={() => setFilter(category.id)}
+              >
+                {category.name}
+              </FilterButton>
+            ))}
+          </FilterButtons>
+          
+          <ProductsGrid>
+            {filteredProducts.map(product => (
+              <ProductCard key={product.id}>
+                <div className="product-image">
+                  <img src={product.image} alt={t(product.nameKey)} />
+                </div>
+                <div className="product-info">
+                  <span className="product-category">
+                    {categories.find(cat => cat.id === product.category)?.name || product.category}
+                  </span>
+                  <h3>{t(product.nameKey)}</h3>
+                  <p>{t(product.descKey)}</p>
+                  <div className="product-price">{product.price}</div>
+                </div>
+              </ProductCard>
+            ))}
+          </ProductsGrid>
+        </div>
+      </MainContent>
     </ProductsContainer>
   );
 }

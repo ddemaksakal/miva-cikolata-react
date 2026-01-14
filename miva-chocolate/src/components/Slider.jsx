@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const SliderContainer = styled.section`
   position: relative;
@@ -58,6 +59,16 @@ const SlideContent = styled.div`
       font-size: 1rem;
     }
   }
+  
+  .btn--accent {
+    background-color:rgb(210, 58, 58);
+    border-color: rgb(210, 58, 58);
+    
+    &:hover {
+      background-color: transparent;
+      color: rgb(210, 58, 58);
+    }
+  }
 `;
 
 const SliderControls = styled.div`
@@ -73,7 +84,7 @@ const Dot = styled.button`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: ${props => props.active ? '#D4AF37' : 'rgba(255, 255, 255, 0.5)'};
+  background-color: ${props => props.active ? 'rgb(210, 58, 58)' : 'rgba(210, 58, 58, 0.5)'};
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -116,24 +127,25 @@ const NextButton = styled(NavigationButton)`
 `;
 
 function Slider({ onExploreClick }) {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   
   // Banner images from the images directory
   const slides = [
     {
       image: '/images/banner1.jpg',
-      title: 'Premium <span>Chocolate</span> Tutkuyla Hazırlandı',
-      description:'Unutulmaz çikolata deneyimleri yaşamak için geleneğin yenilikle buluştuğu Miva Çikolatanın enfes lezzetini keşfedin.'
+      title: t('sliderTitle1'),
+      description: t('sliderDesc1')
     },
     {
       image: '/images/banner2.jpg',
-      title: 'Her Gününüz İçin Enfes  <span>Çikolata Kreasyonları</span> ',
-      description: 'Birinci sınıf çikolata ürünlerimiz tatlılarınıza, unlu mamullerinize ve şekerlemelerinize mükemmel bir lüks dokunuşu katar.'
+      title: t('sliderTitle2'),
+      description: t('sliderDesc2')
     },
     {
       image: '/images/banner3.jpg',
-      title: 'Mutfak Mükemmelliği için <span>Zengin </span> ',
-      description: 'Hem profesyonel şefler hem de ev aşçıları için hazırlanmış zanaatkar çikolata ürünlerimizle tatlılarınızın kalitesini yükseltin.'
+      title: t('sliderTitle3'),
+      description: t('sliderDesc3')
     }
   ];
 
@@ -170,7 +182,7 @@ function Slider({ onExploreClick }) {
             <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
             <p>{slide.description}</p>
             <button className="btn btn--accent" onClick={onExploreClick}>
-              Ürünlerimizi Keşfedin
+              {t('exploreProducts')}
             </button>
           </SlideContent>
         </Slide>

@@ -36,7 +36,7 @@ const FooterColumn = styled.div`
       left: 0;
       width: 50px;
       height: 2px;
-      background-color: #D4AF37;
+      background-color: rgb(234, 40, 30);
     }
   }
   
@@ -52,7 +52,7 @@ const FooterColumn = styled.div`
         transition: color 0.3s ease;
         
         &:hover {
-          color: #D4AF37;
+          color: rgb(234, 40, 30);
         }
       }
     }
@@ -65,7 +65,7 @@ const FooterColumn = styled.div`
       margin-bottom: 1rem;
       
       .icon {
-        color: #D4AF37;
+        color: rgb(234, 40, 30);
         margin-right: 1rem;
         margin-top: 0.25rem;
       }
@@ -95,7 +95,7 @@ const FooterColumn = styled.div`
       transition: all 0.3s ease;
       
       &:hover {
-        background-color: #D4AF37;
+        background-color: rgb(234, 40, 30);
         transform: translateY(-3px);
       }
     }

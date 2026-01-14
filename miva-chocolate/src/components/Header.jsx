@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // --- Styled Components ---
 
@@ -203,24 +204,11 @@ const MobileToggle = styled.div`
 // --- React Component ---
 
 function Header() {
+  const { t, language, changeLanguage } = useLanguage();
   const [click, setClick] = useState(false);
-  const [language, setLanguage] = useState('TR');
-  
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    if (savedLanguage) {
-      setLanguage(savedLanguage);
-    }
-  }, []);
-  
+
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  
-  const changeLanguage = (lang) => {
-    setLanguage(lang);
-    localStorage.setItem('preferredLanguage', lang);
-    console.log(`Language changed to: ${lang}`);
-  };
 
   // --- Değiştirilmiş JSX Yapısı ---
   return (
@@ -283,27 +271,27 @@ function Header() {
             <NavMenu className={click ? 'active' : ''}>
               <NavItem>
                 <NavLink to="/" onClick={closeMobileMenu}>
-                  {language === 'TR' ? 'Ana Sayfa' : 'Home'}
+                  {t('home')}
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/about" onClick={closeMobileMenu}>
-                  {language === 'TR' ? 'Hakkımızda' : 'About'}
+                  {t('about')}
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/products" onClick={closeMobileMenu}>
-                  {language === 'TR' ? 'Ürünler' : 'Products'}
+                  {t('products')}
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/certificates" onClick={closeMobileMenu}>
-                  {language === 'TR' ? 'Sertifikalar' : 'Certificates'}
+                  {t('certificates')}
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/contact" onClick={closeMobileMenu}>
-                  {language === 'TR' ? 'İletişim' : 'Contact'}
+                  {t('contact')}
                 </NavLink>
               </NavItem>
             </NavMenu>

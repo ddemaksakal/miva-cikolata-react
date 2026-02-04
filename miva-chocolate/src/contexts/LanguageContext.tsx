@@ -29,7 +29,6 @@ const translations: Translations = {
     // Home Page
     heroTitle: 'Premium <span>Çikolata</span> Tutkuyla Üretildi',
     heroText: 'Miva Chocolate\'ın olağanüstü tadını keşfedin, burada gelenek yeniliğe buluşuyor ve işletmeler ile tüketiciler için unutulmaz çikolata deneyimleri yaratılıyor.',
-    exploreProducts: 'Ürünlerimizi Keşfedin',
     ourChocolateRange: 'Çikolata Yelpazemiz',
     chocolateRangeText: 'Kapari çikolatalardan özel ürünlere kadar, tüm ihtiyaçlarınız için kapsamlı bir premium çikolata seçimi sunuyoruz.',
     tabletChocolate: 'Tablet Çikolata',
@@ -43,7 +42,8 @@ const translations: Translations = {
     chocolateStoryText1: '2003 yılında kurulan Miva Chocolate, işletmeleri ve tüketicileri memnun eden olağanüstü çikolata ürünleri üretmeye adanmıştır. Kaliteye, sürdürülebilirliğe ve yeniliğe olan bağlılığımız, bizi çikolata endüstrisinde güvenilir bir ortak haline getirmiştir.',
     chocolateStoryText2: 'Geleneksel çikolata yapım tekniklerini modern teknolojiyle birleştirerek, ürettiğimiz her üründe tutarlı kalite ve olağanüstü tat sunuyoruz.',
     learnMore: 'Hakkımızda Daha Fazla Bilgi Edinin',
-    
+    productsIntro2: 'Kaliteli ve lezzetli çikolata ürünlerimizle tanışın.',
+
     // About Page
     ourStory: 'Hikayemiz',
     ourStoryText: 'Miva Chocolate, 2003 yılında çikolata tutkunları tarafından kuruldu. O zamandan beri, işletmeler ve tüketiciler için olağanüstü çikolata deneyimleri yaratmaya odaklandık.',
@@ -80,17 +80,19 @@ const translations: Translations = {
     certificatesText: 'Ürünlerimizin kalitesini ve güvenilirliğini garanti altına almak için uluslararası standartlara uygun sertifikalara sahibiz.',
     
     // Products Page
+    productsIntro1: 'Kaliteli ve lezzetli çikolata ürünleri ile müşterilerimize hizmet veriyoruz.',
+
     ourProducts: 'Ürünlerimiz',
     all: 'Tümü',
-    tablets: 'Tabletler',
     chips: 'Parçacıklar',
     couverture: 'Kuvertür',
-    sauces: 'Soslar',
+    saucesLabel: 'Sürülebilir Seçenekler',
+    chipsLabel: 'Kırıntı Çikolatalar',
+    dropsLabel: 'Damla Çikolatalar',
     cocoa: 'Kakao',
     specialty: 'Özel',
     dragees: 'Drajeler',
-    addToCart: 'Sepete Ekle',
-    productDetails: 'Ürün Detayları',
+  
     
     // Product Names and Descriptions
     product1Name: 'Koyu Çikolata Tablet %70',
@@ -115,8 +117,8 @@ const translations: Translations = {
     product9Desc: 'Tatlılar, içecekler ve garnitürler için pürüzsüz ve zengin çikolata sosu.',
     product10Name: 'Premium Kakao Tozu',
     product10Desc: 'Yoğun aromalı %100 saf doğal kakao tozu. Pişirme ve içecekler için mükemmel.',
-    product11Name: 'Sıcak Çikolata Karışımı',
-    product11Desc: 'Gerçek kakao ile zengin ve kremsi sıcak çikolata karışımı. Sadece sıcak su veya süt ekleyin.',
+    product11Name: 'Special Çikolata Karışımı',
+    product11Desc: 'Özel seçilmiş special çikolata ürünleri gerçek kakao ile hazırlanmıştır.',
     product12Name: 'Çikolata Hediye Kutusu',
     product12Desc: 'En iyi çikolata kreasyonlarımızın seçkisiyle şık hediye kutusu.',
     product14Name: 'Portakal Drajesi',
@@ -184,7 +186,6 @@ const translations: Translations = {
     // Home Page
     heroTitle: 'Premium <span>Chocolate</span> Crafted with Passion',
     heroText: 'Discover the exquisite taste of Miva Chocolate, where tradition meets innovation to create unforgettable chocolate experiences for both businesses and consumers.',
-    exploreProducts: 'Explore Our Products',
     ourChocolateRange: 'Our Chocolate Range',
     chocolateRangeText: 'From couverture to specialty products, we offer a comprehensive selection of premium chocolates for all your needs.',
     tabletChocolate: 'Tablet Chocolate',
@@ -198,7 +199,8 @@ const translations: Translations = {
     chocolateStoryText1: 'Founded in 2003, Miva Chocolate has been dedicated to crafting exceptional chocolate products that delight both businesses and consumers. Our commitment to quality, sustainability, and innovation has made us a trusted partner in the chocolate industry.',
     chocolateStoryText2: 'We combine traditional chocolate-making techniques with modern technology to ensure consistent quality and exceptional taste in every product we create.',
     learnMore: 'Learn More About Us',
-    
+    productsIntro2: 'Meet our high-quality and delicious chocolate products.',
+
     // About Page
     ourStory: 'Our Story',
     ourStoryText: 'Miva Chocolate was founded in 2003 by chocolate enthusiasts. Since then, we have focused on creating extraordinary chocolate experiences for businesses and consumers.',
@@ -237,16 +239,16 @@ const translations: Translations = {
     // Products Page
     ourProducts: 'Our Products',
     all: 'All',
-    tablets: 'Tablets',
     chips: 'Chips',
     couverture: 'Couverture',
-    sauces: 'Sauces',
+    saucesLabel: 'Spreadable Options',
+    chipsLabel: 'Chocolate Chips',
+    dropsLabel: 'Chocolate Drops',
     cocoa: 'Cocoa',
     specialty: 'Specialty',
     dragees: 'Dragees',
-    addToCart: 'Add to Cart',
-    productDetails: 'Product Details',
     
+   
     // Product Names and Descriptions
     product1Name: 'Dark Chocolate Tablet 70%',
     product1Desc: 'Premium dark chocolate with 70% cocoa content for a rich, intense flavor.',
@@ -270,8 +272,8 @@ const translations: Translations = {
     product9Desc: 'Smooth and rich chocolate sauce perfect for desserts, beverages, and toppings.',
     product10Name: 'Cocoa Powder Premium',
     product10Desc: '100% pure natural cocoa powder with intense flavor. Great for baking and beverages.',
-    product11Name: 'Hot Chocolate Mix',
-    product11Desc: 'Rich and creamy hot chocolate mix with real cocoa. Just add hot water or milk.',
+    product11Name: 'Special Chocolate Mix',
+    product11Desc: 'Specially selected special chocolate products are prepared with real cocoa',
     product12Name: 'Chocolate Gift Box',
     product12Desc: 'Elegant gift box with assortment of our finest chocolate creations.',
     product14Name: 'Orange Dragee',

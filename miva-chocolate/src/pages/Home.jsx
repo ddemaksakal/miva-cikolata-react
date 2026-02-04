@@ -268,7 +268,7 @@ function Home() {
                   <img src="/images/Mua-Dubai-Cikolatasi.jpg" alt="Chocolate Production 2" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src="/images/cikolata-tadimi-milat-cikolata-ile-her-b-6e5a.jpg" alt="Chocolate Production 3" />
+                  <img src="/images/hikayemiz1.png" alt="Chocolate Production 3" />
                 </SwiperSlide>
               </Swiper>
             </div>

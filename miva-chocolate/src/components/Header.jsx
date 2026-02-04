@@ -285,11 +285,6 @@ function Header() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/certificates" onClick={closeMobileMenu}>
-                  {t('certificates')}
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink to="/contact" onClick={closeMobileMenu}>
                   {t('contact')}
                 </NavLink>

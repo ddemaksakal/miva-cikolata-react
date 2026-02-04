@@ -180,7 +180,7 @@ function About() {
       <HeroSection>
         <div className="hero-content">
           <h1>{t('aboutTitle')}</h1>
-          <p>Kaliteli ve lezzetli çikolata ürünleri ile müşterilerimize hizmet veriyoruz.</p>
+          <p>{t('productsIntro1')}</p>
         </div>
       </HeroSection>
       

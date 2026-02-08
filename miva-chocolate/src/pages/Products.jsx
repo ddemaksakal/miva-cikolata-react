@@ -88,8 +88,8 @@ const FilterButtons = styled.div`
 
 const FilterButton = styled.button`
   padding: 0.5rem 1.5rem;
-  background-color: ${props => props.active ? 'rgb(234, 40, 30)' : 'transparent'};
-  color: ${props => props.active ? '#ffffff' : '#3E2723'};
+  background-color: ${props => props.$active ? 'rgb(234, 40, 30)' : 'transparent'};
+  color: ${props => props.$active ? '#ffffff' : '#3E2723'};
   border: 2px solid rgb(234, 40, 30);
   border-radius: 30px;
   font-weight: 500;
@@ -97,7 +97,7 @@ const FilterButton = styled.button`
   transition: all 0.3s ease;
   
   &:hover {
-    background-color: ${props => props.active ? 'rgb(234, 40, 30)' : 'rgba(234, 40, 30, 0.1)'};
+    background-color: ${props => props.$active ? 'rgb(234, 40, 30)' : 'rgba(234, 40, 30, 0.1)'};
   }
 `;
 
@@ -505,7 +505,7 @@ const categories = [
             {categories.map(category => (
               <FilterButton
                 key={category.id}
-                active={filter === category.id}
+                $active={filter === category.id}
                 onClick={() => setFilter(category.id)}
               >
                 {category.name}

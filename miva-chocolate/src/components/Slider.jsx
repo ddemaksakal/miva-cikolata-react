@@ -19,13 +19,13 @@ const Slide = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(75, 46, 46, 0.7), rgba(75, 46, 46, 0.7)), 
-              url(${props => props.image}) center/cover no-repeat;
+              url(${props => props.$image}) center/cover no-repeat;
   display: flex;
   align-items: center;
   color: #ffffff;
   text-align: center;
   padding: 3rem 0;
-  opacity: ${props => props.active ? 1 : 0};
+  opacity: ${props => props.$active ? 1 : 0};
   transition: opacity 1s ease-in-out;
 `;
 
@@ -84,7 +84,7 @@ const Dot = styled.button`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: ${props => props.active ? 'rgb(210, 58, 58)' : 'rgba(210, 58, 58, 0.5)'};
+  background-color: ${props => props.$active ? 'rgb(210, 58, 58)' : 'rgba(210, 58, 58, 0.5)'};
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -175,8 +175,8 @@ function Slider({ onExploreClick }) {
       {slides.map((slide, index) => (
         <Slide 
           key={index} 
-          image={slide.image} 
-          active={index === currentSlide}
+          $image={slide.image} 
+          $active={index === currentSlide}
         >
           <SlideContent>
             <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
@@ -199,7 +199,7 @@ function Slider({ onExploreClick }) {
         {slides.map((_, index) => (
           <Dot 
             key={index} 
-            active={index === currentSlide} 
+            $active={index === currentSlide} 
             onClick={() => goToSlide(index)}
           />
         ))}

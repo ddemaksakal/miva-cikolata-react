@@ -83,8 +83,8 @@ const LanguageSelector = styled.div`
 `;
 
 const LanguageButton = styled.button`
-  background: ${props => props.active ? '#D4AF37' : 'transparent'};
-  color: ${props => props.active ? '#ffffff' : '#3E2723'};
+  background: ${props => props.$active ? '#D4AF37' : 'transparent'};
+  color: ${props => props.$active ? '#ffffff' : '#3E2723'};
   border: 2px solidrgb(237, 118, 85);
   border-radius: 50%;
   width: 36px;
@@ -99,7 +99,7 @@ const LanguageButton = styled.button`
   justify-content: center;
   
   &:hover {
-    background: ${props => props.active ? '#D4AF37' : 'rgba(212, 175, 55, 0.2)'};
+    background: ${props => props.$active ? '#D4AF37' : 'rgba(212, 175, 55, 0.2)'};
     transform: scale(1.1);
   }
   
@@ -241,7 +241,7 @@ function Header() {
               </ContactInfo>
               <LanguageSelector>
                 <LanguageButton 
-                  active={language === 'TR'} 
+                  $active={language === 'TR'} 
                   onClick={() => changeLanguage('TR')}
                   className={language === 'TR' ? 'active' : ''}
                   aria-label="Türkçe diline geç"
@@ -249,7 +249,7 @@ function Header() {
                   TR
                 </LanguageButton>
                 <LanguageButton 
-                  active={language === 'EN'} 
+                  $active={language === 'EN'} 
                   onClick={() => changeLanguage('EN')}
                   className={language === 'EN' ? 'active' : ''}
                   aria-label="Switch to English"

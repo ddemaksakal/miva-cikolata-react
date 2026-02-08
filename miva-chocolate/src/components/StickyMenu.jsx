@@ -12,8 +12,8 @@ const StickyMenuContainer = styled.nav`
   border-bottom: 1px solid rgba(12, 154, 255, 0.29);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
   z-index: 999;
-  opacity: ${props => props.visible ? 1 : 0};
-  transform: translateY(${props => props.visible ? '0' : '-100%'});
+  opacity: ${props => props.$visible ? 1 : 0};
+  transform: translateY(${props => props.$visible ? '0' : '-100%'});
   transition: all 0.3s ease;
   padding: 1rem 0;
 `;
@@ -84,7 +84,7 @@ function StickyMenu() {
   ];
 
   return (
-    <StickyMenuContainer visible={isScrolled}>
+    <StickyMenuContainer $visible={isScrolled}>
       <NavMenuContent>
         <NavMenu>
           {menuItems.map(item => (

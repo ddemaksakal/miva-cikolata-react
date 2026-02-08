@@ -187,15 +187,33 @@ function About() {
       <div className="container">
       <ContentCard>
         <div className="accent-title">{t('aboutSubtitle')}</div>
-        <h2>{t('aboutMainTitle')}</h2>
         <p>
-          {t('aboutText1')}
+          30 Yılın Tatlı Hikayesi: MİVA Çikolata'nın Yolculuğu
         </p>
         <p>
-          {t('aboutText2')}
+          1993 yılında "İKBAL PAZARLAMA" adı altında ‘’HANİFİ AKSAKAL’’ tarafından temelleri atılan MİVA Çikolata, çikolata ve şekerleme sektöründe yıllar içinde benzersiz bir iz bırakmıştır. Bu büyülü yolculuk, dürüstlük, ticaret ahlakı, zengin ürün bilgisi ve ürün tecrübesi ile taçlandırılmıştır.
         </p>
         <p>
-          {t('aboutText3')}
+          Kuruluş yıllarından itibaren, İKBAL PAZARLAMA olarak başlayan bu yolculuk, çikolata ve şekerleme sektörünün öncü firmalarının bayiliğini üstlenerek hızla büyüdü. Sektörün liderlerinin güvenini kazanarak, kaliteyi ve müşteri memnuniyetini her zaman önde tutmayı başardık. İKBAL PAZARLAMA olarak elde ettiğimiz bilgi birikimi ve deneyim, bizi çikolata ve şekerleme dünyasının ön saflarına taşıdı.
+        </p>
+        <p>
+          2018 yılında, geçmişimizden aldığımız güçle "MİVA ÇİKOLATA GIDA SAN. VE DIŞ TİC. LTD. ŞTİ." olarak adım attık. Bu yeni ad, bir dönüşümün ve büyümenin işareti oldu. Kendi markamız ‘’İKOLATA’’yı  oluşturuken, sektördeki 30 yıllık deneyimimizin mirasını taşıdık. Her bir çikolatamızda ve her bir ürünümüzde, bu deneyimin getirdiği zenginlik ve birikim bulunmaktadır.
+        </p>
+        <p>
+          MİVA Çikolata'nın temel değerleri, dürüstlük ve ticaret ahlakı üzerine inşa edilmiştir. Bu değerler, her bir ürünümüzün ve her bir ilişkimizin temelini oluşturur. Zengin ürün bilgisi ve ürün tecrübemiz, her damak zevkine uygun lezzetler üretmemize olanak sağlar. İçten gelen bir tutku ile ürettiğimiz her ürünümüzde, sektördeki 30 yıllık deneyimimizin getirdiği incelik ve kalite barizdir.
+        </p>
+        <p>
+          MİVA Çikolata, geçmişte edindiği bilgi ve deneyimi geleceğe taşıyarak, lezzet dolu anılarınıza eşlik etmeyi sürdürecek. İçten gelen bir tutku ve dürüstlük anlayışı ile yolculuğumuza devam ederken, her bir tattan damaklarınıza bırakacağımız izi taşıyacağımızı taahhüt ediyoruz.
+        </p>
+        <p> <b>Vizyonumuz</b>
+        </p>
+        <p>
+          30 yıllık sektör deneyimi ile İKOLATA olarak, çikolatanın büyülü dünyasında öncü bir rol oynamaya devam ediyoruz. Kaliteli hammadde ve benzersiz hizmet anlayışımız sayesinde, çikolata deneyimini sadece lezzetli bir tat değil, unutulmaz bir anı haline getiriyoruz. Amacımız, yılların getirdiği bilgi ve birikimle çikolatayı daha da özel ve anlamlı hale getirmek.
+        </p>
+        <p> <b>Misyonumuz</b>
+        </p>
+        <p>
+          Sektörde 30 yıllık tecrübemizle, kalite ve tutku ile ürettiğimiz çikolatalarla müşterilerimize eşsiz bir deneyim sunmayı hedefliyoruz. Tecrübemiz, en kaliteli hammadde kullanımına ve işçilikle işlenen üretim süreçlerine dayanıyor. Çikolatayı sadece bir tatlı olarak değil, insanların özel anılarını tatlandıran bir unsur olarak görüyoruz.
         </p>
       </ContentCard>
         

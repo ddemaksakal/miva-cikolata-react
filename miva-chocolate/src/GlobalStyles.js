@@ -2,9 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
 const GlobalStyles = createGlobalStyle`
-  /* Import Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
   /* Reset and base styles */
   *, *::before, *::after {
     margin: 0;

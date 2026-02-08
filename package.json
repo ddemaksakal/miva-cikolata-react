@@ -1,41 +1,27 @@
 {
   "name": "miva-cikolata-react",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "Miva Chocolate React Application",
   "main": "index.js",
-  "dependencies": {
-    "es-iterator-helpers": "^1.2.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.4",
-    "styled-components": "^6.1.19"
+  "directories": {
+    "doc": "docs"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "react-scripts test",
+    "dev": "cd miva-chocolate && npm run dev",
+    "build": "cd miva-chocolate && npm run build",
+    "preview": "cd miva-chocolate && npm run preview",
+    "install-deps": "cd miva-chocolate && npm install"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "vite",
+    "chocolate",
+    "miva"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
-    "@babel/preset-env": "^7.28.5",
-    "@babel/preset-react": "^7.28.5",
-    "eslint-plugin-react": "^7.37.5",
     "react-scripts": "^5.0.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

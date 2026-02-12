@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const SliderContainer = styled.section`
   position: relative;
@@ -127,25 +126,25 @@ const NextButton = styled(NavigationButton)`
 `;
 
 function Slider({ onExploreClick }) {
-  const { t } = useLanguage();
+  // const { t } = useLanguage(); // Temporarily disable language context to avoid errors
   const [currentSlide, setCurrentSlide] = useState(0);
   
   // Banner images from the images directory
   const slides = [
     {
       image: '/images/banner1.jpg',
-      title: t('sliderTitle1'),
-      description: t('sliderDesc1')
+      title: 'Premium <span>Chocolate</span> Crafted with Passion',
+      description: 'Discover the exquisite taste of Miva Chocolate, where tradition meets innovation to create unforgettable chocolate experiences for both businesses and consumers.'
     },
     {
       image: '/images/banner2.jpg',
-      title: t('sliderTitle2'),
-      description: t('sliderDesc2')
+      title: 'Delicious <span>Chocolate Creations</span> for Every Day',
+      description: 'Our premium chocolate products add the perfect touch of luxury to your desserts, baked goods, and confections.'
     },
     {
       image: '/images/banner3.jpg',
-      title: t('sliderTitle3'),
-      description: t('sliderDesc3')
+      title: 'Rich for <span>Kitchen Perfection</span>',
+      description: 'Elevate the quality of your desserts with our artisanal chocolate products designed for both professional chefs and home cooks.'
     }
   ];
 

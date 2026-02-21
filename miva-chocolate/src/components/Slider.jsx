@@ -181,7 +181,7 @@ function Slider({ onExploreClick }) {
             <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
             <p>{slide.description}</p>
             <button className="btn btn--accent" onClick={onExploreClick}>
-              {t('exploreProducts')}
+              Explore Products
             </button>
           </SlideContent>
         </Slide>
